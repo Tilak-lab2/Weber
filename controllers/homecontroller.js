@@ -48,7 +48,7 @@ exports.create = async function(req, res){
              newUser.password=hash
             const user= newUser.save()
             user.then(user=>{
-                req.flash('You arenow Registered and can login')
+                req.flash("success",'You are now Registered and can login')
                 res.redirect("sign-in")
             }) 
           })
@@ -74,7 +74,7 @@ exports.createSession =async  function(req, res){
  
 exports.destroySession = function(req, res){
     req.logout();
-    req.flash('success', 'You have logged out!');
+    req.flash('success', 'You have successfully logged out!');
     
     
     return res.redirect('/');
@@ -85,46 +85,36 @@ exports.profile=(req,res)=>{
 
 module.exports.update1 =async function(req, res){
     
-    
-    if(req.user.id == req.params.id){
-        try{
-            let user= await  User.findById(req.params.id); 
+    try{
+        let user=await User.find({email:req.body.email}) 
+        if(!user){
+            res.status(501).json("Not Valid User")
+        }
+        else{
             User.uploadedAvatar(req,res,(err)=>{
                 if(err){
-                    console.log("Multer errror",err)
+                    console.log("Multer Error")
                 }
-                user.name=req.body.name;  
-                user.email=req.body.email;
-                if(req.file){
-                    if(user.avatar)
-                    {
-                        fs.unlinkSync(path.join(__dirname,'..',user.avatar));
-                    }
-                    user.avatar=User.avatarPath+ '/' +req.file.filename;
-                    
-                }
-                user.save()
-                return res.redirect('back');
+                console.log(req.file)
+                req.flash("success","Profile Pic Uploaded")
             })
-            
-            
-        }catch(err){
-            console.log ('error',err)
-            return res.redirect('back')
         }
+    }catch(err){
+        console.log("Error in uploading profile",err)
         
-        
-        
-    }else{
-        console.log('error', 'Unauthorized!');
-        return res.status(401).send('Unauthorized');
+
     }
-}
+         
+}  
+        
+        
+   
+
 module.exports.update =async function(req, res) {
     try{
         if(req.user.id == req.params.id){
             let user= await  User.findById(req.params.id); 
-            User.uploadedAvatar(req,res,(err)=>{
+            User.UploadedAvatar(req,res,(err)=>{
                 if(err){
                     console.log("Multer errror",err)
                 }
