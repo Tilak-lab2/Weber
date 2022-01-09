@@ -1,9 +1,12 @@
 const express=require('express')
 const app=express()
+const flash = require('connect-flash');
 const expressLayouts = require('express-ejs-layouts');
 const session=require('express-session')
 const passport=require('passport')
+const passportLocal=require("./config/passport")
 const MongoStore=require('connect-mongo')(session)
+const customMware = require('./config/middleware');
 const db=require("./config/mongoose")
 const path=require('path')
 require('dotenv').config()
@@ -35,9 +38,9 @@ app.set('layout extractScripts', true);
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
+app.use(passport.setAuthenticatedUser);
+app.use(flash())
+app.use(customMware.setFlash);
 app.use("/",require("./routes"))
 app.listen(port,()=>{
     console.log(`running on localhost${port}`)
