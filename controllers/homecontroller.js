@@ -66,15 +66,9 @@ exports.create = async function(req, res){
 
 
 exports.createSession =async  function(req, res){
- try{
-     const user=await User.findOne({email:req.body.email})
-     !user && res.status(404).json("User Not Found")
-     
-     console.log(user)
-     res.redirect("/")
- }catch(err){
-  console.log(err,"err")
- }
+    console.log(req.body)
+    req.flash('success', 'Logged in Successfully');
+    return res.redirect('/');
    
 }
  
