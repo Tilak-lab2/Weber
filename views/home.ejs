@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<% if (locals.user){ %>
+<section class="bg-dark text-light p-5 text-center">
+  
+  <div class="input-group mb-3">
+  <form method="POST" action="/api/uploads" enctype="multipart/form-data">
+    <label >Name </label>   
+    <input type="hidden" name="" value="<%=user._id%>">
+    <input type="text"  name="name" id="" class="form-control"  required>
+  
+   
+    <label for="">Description</label>
+    <input type="text" name="desc" id="" class="form-control" required>
+    <label for="">Quantity</label>
+    <input type="tel" name="quantity" id="" class="form-control" required>
+    <label for="">Price</label>
+    <input type="tel" name="price" id="" class="form-control" required>
+    <input type="file" name="image" class="form-control">
+    <input type="submit"  value="Upload">
+    <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+ 
+  </div> 
+</section>
+<%}%>
+<a href="/api/dashboard" class="form-control">Details</a>
+</body>
+</html>   
+ 
+         
+      
