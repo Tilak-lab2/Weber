@@ -30,7 +30,7 @@ passport.use(new LocalStrategy({
 
               }
               else{
-                  return done(null,false)
+                  return done(null,false,{message:"Password Incorrect"})
               }
             })
 

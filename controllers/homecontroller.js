@@ -42,15 +42,24 @@ exports.create = async function(req, res){
           email: req.body.email,
           password:req.body.password,
         });
-    
-        const user = await newUser.save();
+      bcrypt.genSalt(10,(err,salt)=>{
+          bcrypt.hash(newUser.password,salt,(err,hash)=>{
+             if(err) throw err 
+             newUser.password=hash
+            const user= newUser.save()
+            user.then(user=>{
+                req.flash('You arenow Registered and can login')
+                res.redirect("sign-in")
+            }) 
+          })
+      }) 
         
-        res.redirect('sign-in');
-        console.log(user)
-      } catch (err) {
-          console.log("error",err)
-        res.redirect('back');
-      }
+    }catch(err){
+      console.log("Error in Registering",err)
+    }
+
+         
+      
     
 }
     

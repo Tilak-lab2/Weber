@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 const session=require('express-session')
 const passport=require('passport')
 const passportLocal=require("./config/passport")
+// const passportGoogle=require("./config/passport_google_oauth")
 const MongoStore=require('connect-mongo')(session)
 const customMware = require('./config/middleware');
 const db=require("./config/mongoose")
