@@ -9,11 +9,7 @@ const productSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
-    desc:{
-        type:String,
-        required:true,
-
-    },
+  
     quantity:{
         type:Number,
         required:true,
@@ -28,6 +24,23 @@ const productSchema=new mongoose.Schema({
         type:Number,
         required:true,
     },
+    unitPrice:{
+        type:Number,
+        required:true
+    },
+    unitStock:{
+        type:Number,
+        required:true,
+    },
+    discontinued:{
+        type:Boolean,
+        required:true
+    },
+    categoryId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Category',
+    }
+
     
 },{
     timestamps:{

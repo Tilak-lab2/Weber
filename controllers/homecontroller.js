@@ -24,41 +24,31 @@ module.exports.signup=(req,res)=>{
     })
 }
 exports.create = async function(req, res){
-   console.log(req.body)
-    const errors=validationResult(req)
-    const {password,email}=req.body
-    const alert=errors.array()
-    if (req.body.password != req.body.confirm_password){
+  try{
+      if(req.body.password!=req.body.confirm_password){
         req.flash('error', 'Passwords do not match');
         return res.redirect('back');
-    }
-
-    try {
-        
-        
-        const newUser = new User({
-          name:req.body.name,
-         
-          email: req.body.email,
-          password:req.body.password,
-        });
+      }
+      const newUser = new User({
+        name:req.body.name,
+        email: req.body.email,
+        password:req.body.password,
+      });
       bcrypt.genSalt(10,(err,salt)=>{
-          bcrypt.hash(newUser.password,salt,(err,hash)=>{
-             if(err) throw err 
+         bcrypt.hash(newUser.password,salt,(err,hash)=>{
+             if(err) throw err
              newUser.password=hash
-            const user= newUser.save()
-            user.then(user=>{
-                req.flash("success",'You are now Registered and can login')
-                res.redirect("sign-in")
-            }) 
-          })
-      }) 
-        
-    }catch(err){
-      console.log("Error in Registering",err)
-    }
+             newUser.save().then(user=>{
+                 req.flash('success',"Registered")
+                 res.redirect("sign-in")
+             })
+         })
+      })
 
-         
+     
+  }catch(err){
+      console.log("error",err)
+  }
       
     
 }

@@ -11,8 +11,7 @@ const customMware = require('./config/middleware');
 const db=require("./config/mongoose")
 const path=require('path')
 
-const methodOverride=require("method-override")
-const GridFsStorage=require("multer-gridfs-storage")
+
 require('dotenv').config()
 const port=process.env.PORT
 app.set('view engine','ejs')

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://localhost/${process.env.db}`);
+mongoose.connect(`mongodb://localhost/Solulab`);
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, "Error connecting to MongoDB"));
