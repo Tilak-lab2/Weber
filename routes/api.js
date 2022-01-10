@@ -1,17 +1,6 @@
 const router=require("express").Router()
  const Productcontroller=require("../controllers/Productcontroller")
  const passport=require("passport")
-//   const fileupload=require("express-fileupload")
-//  router.use(fileupload())
-//  const upload=require("../middleware/upload")
-router.get("/dashboard",passport.checkAuthentication,Productcontroller.dashboard)
-router.post("/uploads",Productcontroller.Items)
- router.get("/upload/items",Productcontroller.getItems)
- router.get("/edit/:id",Productcontroller.updateItems)
- router.get("/delete/:id",Productcontroller.deleteItems)
-router.get("/upload/items:id",Productcontroller.find)
-//  router.post("/apis/uploads",Productcontroller.upload)
-router.post("/uploads",passport.checkAuthentication,Productcontroller.uploaded)
-router.post("/update",Productcontroller.update)
 
+router.post("/create",Productcontroller.create)
 module.exports=router

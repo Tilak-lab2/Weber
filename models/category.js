@@ -4,11 +4,13 @@ const newCategory= new mongoose.Schema({
   Id:{
       type:mongoose.Schema.Types.ObjectId,
   },
-  name:{
+  Categoryname:{
       type:String,
       required:true
   }
 
+},{
+    timestamps:true,
 })
 const Category=mongoose.model('Category',newCategory)
 

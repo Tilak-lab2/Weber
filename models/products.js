@@ -1,4 +1,5 @@
 const mongoose=require("mongoose")
+const Category = require("./category")
  
  
 const productSchema=new mongoose.Schema({
@@ -20,10 +21,7 @@ const productSchema=new mongoose.Schema({
 
     },
   
-    price:{
-        type:Number,
-        required:true,
-    },
+   
     unitPrice:{
         type:Number,
         required:true
@@ -32,13 +30,15 @@ const productSchema=new mongoose.Schema({
         type:Number,
         required:true,
     },
-    discontinued:{
-        type:Boolean,
-        required:true
-    },
+    
     categoryId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Category',
+    },
+    Categoryname:{
+        type:String,
+        ref:"category"
+ 
     }
 
     

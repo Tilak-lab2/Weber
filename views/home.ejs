@@ -14,8 +14,54 @@
          <section id="feed-posts">
              <h1>Welcome &nbsp;<%=user.name%></h1>
          </section>
+         <br>
+        <form action="/api/create" method="post" class="form-floating">
+            <!-- <select class="form-select" aria-label="Default select example" name="Categoryname">
+                <option selected>Category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Books"> Books</option>
+              
+            </select> -->
+            <div class="form-floating mb-3">
+              <input  class="form-control" id="floatingInput" name="Categoryname">
+              <label for="floatingInput" >Choose Category</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" name="name">
+                <label for="floatingInput">Product Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="Password" name="quantity">
+                <label for="floatingInput">Quantity</label>
+              </div>  
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="floatingInput" placeholder="Password" name="unitPrice">
+                <label for="floatingInput">Price</label>
+              </div>       
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="floatingInput" placeholder="Password" name="unitStock">
+                <label for="floatingInput">Stock</label>
+              </div>    
+    
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="discontinued" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  True
+                </label>
+                <input class="form-check-input" type="radio" name="discontinued" id="flexRadioDefault2" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                  False
+                </label>
+              </div>
+             
+             <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form> 
          
      </div>
+
  </div>
  <%}%>
 </body>

@@ -45,6 +45,7 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash())
 app.use(customMware.setFlash);
 app.use("/",require("./routes"))
+app.use("/api",require("./routes/api"))
 app.listen(port,()=>{
     console.log(`running on localhost${port}`)
 })
