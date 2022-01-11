@@ -16,22 +16,68 @@
          </section>
          <br>
         <form action="/api/create" method="post" class="form-floating">
-            <!-- <select class="form-select" aria-label="Default select example" name="Categoryname">
+            <select class="form-select" aria-label="Default select example" name="Categoryname">
                 <option selected>Category</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Fashion">Fashion</option>
-                <option value="Furniture">Furniture</option>
-                <option value="Books"> Books</option>
+                <optgroup label="Electronics">
+                  <option value="Television">Television</option>
+                  <option value="Washing Machine">WashingMachine</option>
+                  <option value="Fridge">Fridge</option>
+                  <option value="Laptop">Laptop</option>
+                  <option value="Smartphone">Smartphone</option>
+                </optgroup>
+               <optgroup label="Books">
+                  <option value="Lovestory">Lovestory</option>
+                  <option value="horror">Horror</option>
+                  <option value="">Devetional</option>
+                  <option value="romance">Romance</option>
+               </optgroup>
               
-            </select> -->
-            <div class="form-floating mb-3">
+            </select>
+            <!-- <div class="form-floating mb-3">
               <input  class="form-control" id="floatingInput" name="Categoryname">
               <label for="floatingInput" >Choose Category</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" name="name">
-                <label for="floatingInput">Product Name</label>
-              </div>
+            </div> -->
+          
+              <select class="form-select" aria-label="Default select example" name="name">
+               
+                <option selected>Product Name</option>
+                <optgroup label="Electronics">
+                  <optgroup label="Television">
+                  <option >Sony Bravia</option>
+                  <option >LG QLED</option>
+                  <option >Samsumg TV</option>
+                  <option >TOSHIBA </option>
+                  <option >LG 4K</option>
+                  <option >MI TV</option>
+                  <option >ONE PLUS 4K TV</option>
+                  
+                </optgroup>
+                <optgroup label="Washing Machine">
+                  <option >IFB Washing Machine</option>
+                  <option >LG TopLoad</option>
+                  <option >LG front-load</option>
+                  <option >IFB TopLoad</option>
+                  <option >HITACHI WashingMachine</option>
+                  <option >HAIER Washing Machine</option>
+                  
+
+                </optgroup>
+                <optgroup label="Fridge">
+                  <option >LG Fridge</option>
+                  <option >Samsung Fridge</option>
+                  <option >Hiatchi Fridge</option>
+                  <option >Daikin </option>
+                  <option >BlueStar</option>
+                 
+                  
+
+                </optgroup>
+                </optgroup>
+
+                     
+                
+              
+            </select>
               <div class="form-floating mb-3">
                 <input type="number" class="form-control" id="floatingInput" placeholder="Password" name="quantity">
                 <label for="floatingInput">Quantity</label>
@@ -44,18 +90,14 @@
                 <input type="tel" class="form-control" id="floatingInput" placeholder="Password" name="unitStock">
                 <label for="floatingInput">Stock</label>
               </div>    
-    
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="discontinued" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  True
-                </label>
-                <input class="form-check-input" type="radio" name="discontinued" id="flexRadioDefault2" >
-                <label class="form-check-label" for="flexRadioDefault2">
-                  False
-                </label>
-              </div>
-             
+              <!-- <select class="form-select" aria-label="Default select example" name="discontinued">
+                <option selected>Available</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+              
+            </select>
+               -->
+     
              <button type="submit" class="btn btn-primary">Submit</button>
 
         </form> 

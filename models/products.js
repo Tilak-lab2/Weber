@@ -37,9 +37,14 @@ const productSchema=new mongoose.Schema({
     },
     Categoryname:{
         type:String,
-        ref:"category"
+        ref:"category",
  
-    }
+    },
+    discontinued:{
+         required:true,
+        
+    }, 
+
 
     
 },{
