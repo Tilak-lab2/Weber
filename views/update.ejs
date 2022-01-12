@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+   <%if(locals.user){%>
+     <h1 >Update Products</h1>
+      <form action="/api/updateItem" method="post">
+        <select class="form-select" aria-label="Default select example" name="Categoryname">
+            <option selected>Category</option>
+            <optgroup label="Electronics">
+              <option value="Television">Television</option>
+              <option value="Washing Machine">WashingMachine</option>
+              <option value="Fridge">Fridge</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Smartphone">Smartphone</option>
+            </optgroup>
+           <optgroup label="Books">
+              <option value="Lovestory">Lovestory</option>
+              <option value="horror">Horror</option>
+              <option value="">Devetional</option>
+              <option value="romance">Romance</option>
+           </optgroup>
+          
+        </select>
+        <!-- <div class="form-floating mb-3">
+          <input  class="form-control" id="floatingInput" name="Categoryname">
+          <label for="floatingInput" >Choose Category</label>
+        </div> -->
+      
+          <select class="form-select" aria-label="Default select example" name="name">
+           
+            <option selected>Product Name</option>
+            <optgroup label="Electronics">
+              <optgroup label="Television">
+              <option >Sony Bravia</option>
+              <option >LG QLED</option>
+              <option >Samsumg TV</option>
+              <option >TOSHIBA </option>
+              <option >LG 4K</option>
+              <option >MI TV</option>
+              <option >ONE PLUS 4K TV</option>
+              
+            </optgroup>
+            <optgroup label="Washing Machine">
+              <option >IFB Washing Machine</option>
+              <option >LG TopLoad</option>
+              <option >LG front-load</option>
+              <option >IFB TopLoad</option>
+              <option >HITACHI WashingMachine</option>
+              <option >HAIER Washing Machine</option>
+              
+
+            </optgroup>
+            <optgroup label="Fridge">
+              <option >LG Fridge</option>
+              <option >Samsung Fridge</option>
+              <option >Hiatchi Fridge</option>
+              <option >Daikin </option>
+              <option >BlueStar</option>
+             
+              
+
+            </optgroup>
+            </optgroup>
+
+                 
+            
+          
+        </select>
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="Password" name="quantity">
+            <label for="floatingInput">Quantity</label>
+          </div>  
+          <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="Password" name="unitPrice">
+            <label for="floatingInput">Price</label>
+          </div>       
+          <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="Password" name="unitStock">
+            <label for="floatingInput">Stock</label>
+          </div>    
+          <!-- <select class="form-select" aria-label="Default select example" name="discontinued">
+            <option selected>Available</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+          
+        </select>
+           -->
+ 
+         <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form> 
+     
+ </div>
+
+</div>
+        </form>
+
+    <%}%>
+</body>
+</html>

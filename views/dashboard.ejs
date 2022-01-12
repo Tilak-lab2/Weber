@@ -17,9 +17,10 @@
             </div>
             </div> 
    
-    
-    <table class="table table-stripped table-primary">
-   <thead class="thead-dark">
+    <div class="table-responsive">
+    <table class="table table-bordered table-primary">
+        <caption>Product Details</caption>
+        <thead class="thead-dark">
       <tr>
       
       <th>ProductName</th>
@@ -27,6 +28,8 @@
       <th>Quantity</th>
       <th>Price</th>
       <th>InStock</th>
+      <th>Update</th>
+      <th>Remove</th>
       </tr>
    </thead>
    <% if(locals.user){%> 
@@ -42,8 +45,10 @@
        <td>
          <a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-s"><i class="fa fa-edit"></i></a></td>
        <td><a href="/api/delete/<%= row._id %>" class="btn btn-danger btn-s"><i class="fa fa-trash"></i></a></td>
-       
+ </tr>      
  </tr>
+    </table>
+    </div>
  
 
         <%})%>

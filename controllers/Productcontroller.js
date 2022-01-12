@@ -1,4 +1,4 @@
-
+const User=require("../models/user")
 const Products=require("../models/products")
 // Creating the products
 exports.create=async (req,res)=>{
@@ -49,7 +49,51 @@ exports.deleteItems=(req,res)=>{
 
     })
     .catch(err=>{
-        req.flash("success","Error Cannot Delete User ")
+        req.flash("error","Error Cannot Delete User ")
        console.log("Error in deleting",err) 
     })
+}
+
+// 
+exports.updateItems=(req,res)=>{
+  
+    const id=req.params.id
+    
+    try{
+        Products.findById(id).exec(function(err,data){
+           console.log(data)
+            if(err) throw err
+            res.render('update',{title:"Edit || MyTube",records:data})
+        })
+    }catch(err){
+        req.flash("error","Error in Updating")
+    }
+        
+
+}
+//Updating the product
+exports.Update=async(req,res)=>{
+    const id=req.params.id
+    console.log(id)
+
+    let update=  await Products.findOneAndUpdate(id,{
+       $set:{
+        Categoryname:req.body.Categoryname,
+        name:req.body.name,
+        quantity:req.body.quantity,
+        unitPrice:req.body.unitPrice,
+        unitStock:req.body.unitStock,
+        discontinued:req.body.discontinued
+       }
+    })
+    .then(result=>{
+        req.flash("success","Updated")
+        res.redirect("/api/dashboard")
+        console.log(result)
+    })
+     .catch(err=>{
+         req.flash("Error in updating the product")
+         console.log("Error",err)
+     })    
+
 }
