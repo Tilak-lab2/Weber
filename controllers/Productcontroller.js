@@ -1,7 +1,6 @@
 
 const Products=require("../models/products")
-const category=require("../models/category")
-
+// Creating the products
 exports.create=async (req,res)=>{
    try{
     const product=new Products({
@@ -14,6 +13,7 @@ exports.create=async (req,res)=>{
     })
     const Product=await  product.save()
     console.log(Product)
+    req.flash("success","Product Added")
     res.redirect("/")
 
 }catch(err){
@@ -23,3 +23,33 @@ exports.create=async (req,res)=>{
 }
 }
 
+exports.dashboard=(req,res)=>{
+    Products.find({id:req.body.id}).exec((err,data)=>{
+        if(err) console.log(err,"error");
+        res.render('dashboard',{title:"Dashboard || Weber",records:data})
+
+    })
+  
+}
+// Deleting the products with the help of id:
+exports.deleteItems=(req,res)=>{
+    const id=req.params.id
+     Products.findByIdAndDelete(id).then(data=>{
+        if(!data){
+            res.status(404).send({
+                message:"Error in Deleting the product"
+            })
+        }
+        else{
+            req.flash("success","Item Deleted")
+            res.redirect("/api/dashboard")
+            
+            console.log("Deleted")
+        }
+
+    })
+    .catch(err=>{
+        req.flash("success","Error Cannot Delete User ")
+       console.log("Error in deleting",err) 
+    })
+}

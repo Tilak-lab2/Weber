@@ -21,32 +21,34 @@
     <table class="table table-stripped table-primary">
    <thead class="thead-dark">
       <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
+      
+      <th>ProductName</th>
+      <th>User name</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th>InStock</th>
       </tr>
    </thead>
    <% if(locals.user){%> 
-   <% records.forEach(function(row) {%>
-    <tr>
-     <td><%= row._id %></td>
-     <td><%=row.name%></td>
-     <td><%= row.desc %></td>
-     <td><%= row.quantity%></td>
-     <td><%=row.price%></td>
-     <td><a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a></td>
-     <td><a href="/api/delete/<%= row._id %>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a></td>
-     
-   </tr>
-    </table>
- <% }) %>
-<%}%>
- </div>
- </div>
- </main>
+    
+    <% records.forEach(function(row){ %>
+    
+        <tr>
+       <td> <%=row.name%></td>
+       <td><%=user.name%></td>
+       <td><%=row.quantity%></td>
+       <td><%=row.unitPrice%></td>
+       <td><%=row.unitStock%></td>
+       <td>
+         <a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-s"><i class="fa fa-edit"></i></a></td>
+       <td><a href="/api/delete/<%= row._id %>" class="btn btn-danger btn-s"><i class="fa fa-trash"></i></a></td>
+       
+ </tr>
+ 
 
+        <%})%>
+   
+   <%}%>
 
 </body>
 </html>

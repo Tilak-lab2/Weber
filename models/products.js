@@ -40,10 +40,10 @@ const productSchema=new mongoose.Schema({
         ref:"category",
  
     },
-    discontinued:{
-         required:true,
+    // discontinued:{
+    //      required:true,
         
-    }, 
+    // }, 
 
 
     
