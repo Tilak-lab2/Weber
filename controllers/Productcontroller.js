@@ -1,5 +1,6 @@
 const User=require("../models/user")
 const Products=require("../models/products")
+const Product = require("../models/products")
 // Creating the products
 exports.create=async (req,res)=>{
    try{
@@ -54,7 +55,7 @@ exports.deleteItems=(req,res)=>{
     })
 }
 
-// 
+// Rendering the update page
 exports.updateItems=(req,res)=>{
   
     const id=req.params.id
@@ -96,4 +97,4 @@ exports.Update=async(req,res)=>{
          console.log("Error",err)
      })    
 
-}
+    }

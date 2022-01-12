@@ -18,7 +18,7 @@
             </div> 
    
     <div class="table-responsive">
-    <table class="table table-bordered table-primary">
+    <table class="table table-bordered table-primary table-hover">
         <caption>Product Details</caption>
         <thead class="thead-dark">
       <tr>
@@ -43,11 +43,11 @@
        <td><%=row.unitPrice%></td>
        <td><%=row.unitStock%></td>
        <td>
-         <a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-s"><i class="fa fa-edit"></i></a></td>
+     <a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-s"><i class="fa fa-edit"></i></a></td>
        <td><a href="/api/delete/<%= row._id %>" class="btn btn-danger btn-s"><i class="fa fa-trash"></i></a></td>
  </tr>      
  </tr>
-    </table>
+    
     </div>
  
 

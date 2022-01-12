@@ -15,7 +15,29 @@
              <h1>Welcome &nbsp;<%=user.name%></h1>
          </section>
          <br>
-        <form action="/api/create" method="post" class="form-floating">
+         <br>
+         <!-- Carousels -->
+         <div id="carouselSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/Images/maxim-hopman-Hin-rzhOdWs-unsplash.jpg" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+              <img src="/Images/neonbrand-Pvx24X1uiq4-unsplash.jpg" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+              <img src="/Images/istockphoto-180699590-170667a.jpg" class="d-block w-100" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+         <!--  -->
+        
+         <form action="/api/create" method="post" class="form-floating">
             <select class="form-select" aria-label="Default select example" name="Categoryname">
                 <option selected>Category</option>
                 <optgroup label="Electronics">
@@ -100,7 +122,13 @@
      
              <button type="submit" class="btn btn-primary">Submit</button>
 
-        </form> 
+        </form>
+         <form method="post" action="/action/addToCart">
+         <input type="hidden" name="id" value="">
+         <button type="submit" class="btn btn-primary">Submit</button>  
+        
+        </form>
+
          
      </div>
 
