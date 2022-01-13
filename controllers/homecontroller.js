@@ -9,18 +9,18 @@ const {check,validationResult}=require('express-validator')
 module.exports.home=(req,res)=>{
     
      
-         res.render('home',{title:"Home | MyTube"})
+         res.render('home',{title:"Home | Weber"})
 
     
     
 }
 module.exports.signin=(req,res)=>{
-    return res.render('user_sign_in',{title:"Sign In | MyTube"})
+    return res.render('user_sign_in',{title:"Sign In | Weber"})
 
 }
 module.exports.signup=(req,res)=>{
     return res.render('user_sign_up',{
-        title:'Sign Up | MyTube'
+        title:'Sign Up | Weber'
     })
 }
 exports.create =async function(req, res){
@@ -77,7 +77,7 @@ exports.destroySession = function(req, res){
     return res.redirect('/');
 }
 exports.profile=(req,res)=>{
-    res.render('profile',{title:'Profile | MyTube'})
+    res.render('profile',{title:'Profile | Weber'})
 }
 
 module.exports.update1 =async function(req, res){
