@@ -22,36 +22,27 @@
         <caption>Product Details</caption>
         <thead class="thead-dark">
       <tr>
-      
+      <th>Username</th>
       <th>ProductName</th>
-      <th>User name</th>
+    
       <th>Quantity</th>
       <th>Price</th>
       <th>InStock</th>
+      <th>Delete</th>
       <th>Update</th>
-      <th>Remove</th>
       </tr>
    </thead>
    <% if(locals.user){%> 
-    
-    <% records.forEach(function(row){ %>
-    
-        <tr>
-       <td> <%=row.name%></td>
-       <td><%=user.name%></td>
-       <td><%=row.quantity%></td>
-       <td><%=row.unitPrice%></td>
-       <td><%=row.unitStock%></td>
-       <td>
-     <a href="/api/edit/<%= row._id %> " class="btn btn-primary btn-s"><i class="fa fa-edit"></i></a></td>
-       <td><a href="/api/delete/<%= row._id %>" class="btn btn-danger btn-s"><i class="fa fa-trash"></i></a></td>
- </tr>      
- </tr>
-    
-    </div>
- 
-
-        <%})%>
+     <tr>
+         <td><%=user.name%></td>
+         <td><%=records.name%></td>
+         <td><%=records.quantity%></td>
+         <td><%=records.unitPrice%></td>
+         <td><%=records.unitStock%></td>
+         <td><a href="/api/delete/<%=records._id%>" ><i class="fa fa-trash"></i></a></td>
+         <td><a href="/api/edit/<%=records._id%>"><i class="fa fa-edit" ></i></a></td>
+     </tr>
+   
    
    <%}%>
 

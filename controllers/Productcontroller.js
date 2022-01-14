@@ -1,8 +1,21 @@
 const User=require("../models/user")
 const Products=require("../models/products")
 const Product = require("../models/products")
+   // Reading all the products items
+
+   exports.dashboardItems= (req,res)=>{
+    Product.find({}).exec((err,data)=>{
+       if(data){
+           res.render('info',{title:"info || Weber",records:data})
+       }
+       else{
+           return console.log("Error",err)
+       }
+     })
+ }
 // Creating the products
 exports.create=async (req,res)=>{
+    const id=req.params.id
    try{
     const product=new Products({
         Categoryname:req.body.Categoryname,
@@ -15,7 +28,7 @@ exports.create=async (req,res)=>{
     const Product=await  product.save()
     console.log(Product)
     req.flash("success","Product Added")
-    res.redirect("/")
+    res.redirect('/api/read')
 
 }catch(err){
     if(err) throw err
@@ -23,14 +36,18 @@ exports.create=async (req,res)=>{
     res.redirect('sign-in')
 }
 }
-
+// Getting a particular product with/:id
 exports.dashboard=(req,res)=>{
-    Products.find({id:req.body.id}).exec((err,data)=>{
-        if(err) console.log(err,"error");
-        res.render('dashboard',{title:"Dashboard || Weber",records:data})
-
+    const id=req.params.id
+    console.log(id)
+    Product.findById(id).then((data)=>{
+        res.render('dashboard',{title:"Dashboard",records:data})
     })
-  
+  .catch(err=>{
+      res.json(500).json({
+          message:"Internal Server Error"
+      })
+  })
 }
 // Deleting the products with the help of id:
 exports.deleteItems=(req,res)=>{
@@ -43,7 +60,7 @@ exports.deleteItems=(req,res)=>{
         }
         else{
             req.flash("success","Item Deleted")
-            res.redirect("/api/dashboard")
+            res.redirect("back")
             
             console.log("Deleted")
         }
@@ -89,7 +106,7 @@ exports.Update=async(req,res)=>{
     })
     .then(result=>{
         req.flash("success","Updated")
-        res.redirect("/api/dashboard")
+        res.redirect("back")
         console.log(result)
     })
      .catch(err=>{
@@ -98,3 +115,4 @@ exports.Update=async(req,res)=>{
      })    
 
     }
+ 

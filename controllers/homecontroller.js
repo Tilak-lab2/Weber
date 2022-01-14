@@ -8,7 +8,7 @@ const {check,validationResult}=require('express-validator')
 
 module.exports.home=(req,res)=>{
     
-     
+        
          res.render('home',{title:"Home | Weber"})
 
     

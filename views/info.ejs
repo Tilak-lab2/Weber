@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Thank You</h1>
+        <!-- <div class="box-nav d-flex justify-between"> -->
+        </div>
+        </div> 
+
+
+<table class="table table-stripped table-primary">
+<thead class="thead-dark">
+  <tr>
+  
+  <th>Name</th>
+
+  <th>Quantity</th>
+  <th>Price</th>
+  <th>Stock</th>
+  </tr>
+</thead>
+<% if(locals.user){%> 
+<% records.forEach(function(row) {%>
+<tr>
+ 
+ <td><%=user.name%></td>
+ 
+ <td><%= row.quantity%></td>
+ <td><%=row.unitPrice%></td>
+ <td><%=row.unitStock%></td>
+</tr> 
+
+<%})%>
+
+
+<%}%>
+</body>
+</html>
