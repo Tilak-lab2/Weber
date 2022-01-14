@@ -72,7 +72,8 @@ userSchema.statics.UploadedAvatar=multer({
             cb(null,true)
         }else{
             cb(null,false)
-            return cb(new Error("Sorry You cannot Upload it"))
+             return cb(new Error("Sorry You cannot Upload it"))
+           
         }
     },
     

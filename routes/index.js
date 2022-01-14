@@ -31,7 +31,7 @@ router.get('/auth/google',passport.authenticate('google',{scope:['profile','emai
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/sign-in'}),homecontroller.createSession)
 router.get('/profile/:id',homecontroller.profile)
 router.post('/update1',homecontroller.update1)
- router.post("/update/:id",passport.checkAuthentication,homecontroller.update)
+router.post("/update/:id",passport.checkAuthentication,homecontroller.update)
  
 
 module.exports=router

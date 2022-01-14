@@ -53,7 +53,7 @@ exports.create =async function(req, res){
       }
       }
       catch(err){
-          if(error.isJoi==true) error.status=422
+          
       console.log("error")
   }
       
