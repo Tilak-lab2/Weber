@@ -42,6 +42,7 @@ const productSchema=new mongoose.Schema({
     },
     // discontinued:{
     //      required:true,
+    //      type:Boolean
         
     // }, 
 

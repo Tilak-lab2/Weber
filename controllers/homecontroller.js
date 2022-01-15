@@ -1,11 +1,11 @@
 const User = require('../models/user');
 
-
+// for hashing the passwords
 const bcrypt=require('bcrypt')
 
 const {check,validationResult}=require('express-validator')
 
-
+// Rendering the Home page
 module.exports.home=(req,res)=>{
     
         
@@ -14,15 +14,18 @@ module.exports.home=(req,res)=>{
     
     
 }
+//  Signin page
 module.exports.signin=(req,res)=>{
     return res.render('user_sign_in',{title:"Sign In | Weber"})
 
 }
+// Signup page
 module.exports.signup=(req,res)=>{
     return res.render('user_sign_up',{
         title:'Sign Up | Weber'
     })
 }
+// Signup functionality
 exports.create =async function(req, res){
     console.log(req.body)
  
@@ -61,14 +64,14 @@ exports.create =async function(req, res){
 }
     
 
-
+// Sign-in Functionality
 exports.createSession =async  function(req, res){
     console.log(req.body)
     req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
    
 }
- 
+//  log-out
 exports.destroySession = function(req, res){
     req.logout();
     req.flash('success', 'You have successfully logged out!');
@@ -76,10 +79,11 @@ exports.destroySession = function(req, res){
     
     return res.redirect('/');
 }
+// Profile page
 exports.profile=(req,res)=>{
     res.render('profile',{title:'Profile | Weber'})
 }
-
+// Uploading profile pic
 module.exports.update1 =async function(req, res){
     
     try{
